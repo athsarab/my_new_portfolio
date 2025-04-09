@@ -7,32 +7,60 @@ import WebBackground from './components/WebBackground';
 import pic1 from './assets/my2.png';
 
 // Tech icons data (place outside your component)
+//import ReactIcon from './icons/react.svg';
+import DartIcon from './icons/icons8-dart.svg';
+import JavaScriptIcon from './icons/icons8-javascript.svg';
+/*import TypeScriptIcon from './icons/typescript.svg';
+import NodeJsIcon from './icons/nodejs.svg';
+import PythonIcon from './icons/icons8-python.svg';
+import JavaIcon from './icons/icons8-java.svg';
+import AndroidIcon from './icons/android.svg';
+import c++ from './icons/icons8-c++.svg';
+import ReactNativeIcon from './icons/react-native.svg';
+import FlutterIcon from './icons/flutter.svg';
+import AWSIcon from './icons/aws.svg';
+import FirebaseIcon from './icons/firebase.svg';
+import AzureIcon from './icons/azure.svg';
+import DockerIcon from './icons/docker.svg';
+import KubernetesIcon from './icons/kubernetes.svg';
+import GitIcon from './icons/git.svg';
+import HTML5Icon from './icons/icons8-html-5.svg';
+import CSS3Icon from './icons/css3.svg';
+import SassIcon from './icons/sass.svg';
+import TailwindIcon from './icons/tailwind.svg';
+import GraphQLIcon from './icons/graphql.svg';
+import MySQLIcon from './icons/mysql.svg';
+import MongoDBIcon from './icons/mongodb.svg';
+import LinuxIcon from './icons/linux.svg';
+*/
 const techIcons = {
-  "React": "/icons/react.svg",
-  "Dart": "/icons/icons8-dart.svg",
-  "JavaScript": "/icons/javascript.svg",
-  "TypeScript": "/icons/typescript.svg",
-  "Node.js": "/icons/nodejs.svg",
-  "Python": "/icons/python.svg",
-  "Java": "/icons/java.svg",
-  "Android": "/icons/android.svg",
-  "iOS": "/icons/ios.svg",
-  "React Native": "/icons/react-native.svg",
-  "Flutter": "/icons/flutter.svg",
-  "AWS": "/icons/aws.svg",
-  "Firebase": "/icons/firebase.svg",
-  "Azure": "/icons/azure.svg",
-  "Docker": "/icons/docker.svg",
-  "Kubernetes": "/icons/kubernetes.svg",
-  "Git": "/icons/git.svg",
-  "HTML5": "/icons/html5.svg",
-  "CSS3": "/icons/css3.svg",
-  "Sass": "/icons/sass.svg",
-  "Tailwind": "/icons/tailwind.svg",
-  "GraphQL": "/icons/graphql.svg",
-  "MySQL": "/icons/mysql.svg",
-  "MongoDB": "/icons/mongodb.svg",
-  "Linux": "/icons/linux.svg",
+  //React: ReactIcon,
+  Dart: DartIcon,
+  
+  JavaScript: JavaScriptIcon,
+ /* TypeScript: TypeScriptIcon,
+  'Node.js': NodeJsIcon,
+  Python: PythonIcon,
+  Java: JavaIcon,
+  Android: AndroidIcon,
+  C++: C++,
+  'React Native': ReactNativeIcon,
+  Flutter: FlutterIcon,
+  AWS: AWSIcon,
+  Firebase: FirebaseIcon,
+  Azure: AzureIcon,
+  Docker: DockerIcon,
+  Kubernetes: KubernetesIcon,
+  Git: GitIcon,
+  HTML5: HTML5Icon,
+  CSS3: CSS3Icon,
+  Sass: SassIcon,
+  Tailwind: TailwindIcon,
+  GraphQL: GraphQLIcon,
+  MySQL: MySQLIcon,
+  MongoDB: MongoDBIcon,
+  Linux: LinuxIcon,
+  */
 };
 
 function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: number }) {
