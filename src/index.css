@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: 94 53 177;
+    --color-secondary: 0 200 150;
+    --color-accent: 191 90 242;
+    --color-background: 18 18 24;
+  }
+}
+
+body {
+  @apply bg-[rgb(var(--color-background))] text-white cursor-none;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.custom-cursor {
+  @apply fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference;
+  background: rgb(var(--color-accent));
+  transition: transform 0.2s ease;
+}
+
+.custom-cursor-dot {
+  @apply fixed w-2 h-2 rounded-full pointer-events-none z-50;
+  background: rgb(var(--color-secondary));
+  transition: transform 0.1s ease;
+}
+
+.web-background {
+  @apply fixed inset-0 z-0;
+  background: radial-gradient(circle at center, 
+    rgba(var(--color-primary), 0.15) 0%,
+    rgba(var(--color-background), 0.5) 100%
+  );
+}
+
+.glass-card {
+  @apply backdrop-blur-lg bg-white/5 rounded-xl border border-white/10 
+    shadow-[0_8px_32px_0_rgba(var(--color-primary),0.1)] 
+    hover:shadow-[0_8px_32px_0_rgba(var(--color-accent),0.2)]
+    transition-all duration-300;
+}
+
+.magnetic-button {
+  @apply relative px-6 py-3 rounded-full text-white font-medium
+    bg-gradient-to-r from-[rgb(var(--color-primary))] to-[rgb(var(--color-accent))]
+    hover:shadow-[0_0_20px_rgba(var(--color-accent),0.5)]
+    transition-all duration-300;
+}
+
+.glow-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r 
+    from-[rgb(var(--color-secondary))] to-[rgb(var(--color-accent))]
+    animate-pulse;
+}
