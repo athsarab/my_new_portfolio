@@ -73,7 +73,7 @@ function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: nu
 
 function App() {
   return (
-    <>
+    <>   
       <CustomCursor />
       <WebBackground />
       
