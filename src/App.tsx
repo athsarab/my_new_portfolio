@@ -10,12 +10,13 @@ import pic1 from './assets/my2.png';
 //import ReactIcon from './icons/react.svg';
 import DartIcon from './icons/icons8-dart.svg';
 import JavaScriptIcon from './icons/icons8-javascript.svg';
-/*import TypeScriptIcon from './icons/typescript.svg';
-import NodeJsIcon from './icons/nodejs.svg';
+//import TypeScriptIcon from './icons/typescript.svg';
+//import NodeJsIcon from './icons/nodejs.svg';
 import PythonIcon from './icons/icons8-python.svg';
 import JavaIcon from './icons/icons8-java.svg';
-import AndroidIcon from './icons/android.svg';
-import c++ from './icons/icons8-c++.svg';
+//import AndroidIcon from './icons/android.svg';
+//import C from './icons/icons8-c++.svg';
+/*
 import ReactNativeIcon from './icons/react-native.svg';
 import FlutterIcon from './icons/flutter.svg';
 import AWSIcon from './icons/aws.svg';
@@ -38,12 +39,13 @@ const techIcons = {
   Dart: DartIcon,
   
   JavaScript: JavaScriptIcon,
- /* TypeScript: TypeScriptIcon,
-  'Node.js': NodeJsIcon,
+ // TypeScript: TypeScriptIcon,
+ // 'Node.js': NodeJsIcon,
   Python: PythonIcon,
   Java: JavaIcon,
-  Android: AndroidIcon,
-  C++: C++,
+ // Android: AndroidIcon,
+  //C++: C,
+  /*
   'React Native': ReactNativeIcon,
   Flutter: FlutterIcon,
   AWS: AWSIcon,
