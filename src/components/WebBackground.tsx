@@ -30,12 +30,14 @@ const WebBackground = () => {
       });
     }
 
-    const draw = () => {
+    const draw = () => { 
       if (!ctx || !canvas) return;
       
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'rgba(var(--color-primary), 0.5)';
-      ctx.strokeStyle = 'rgba(var(--color-accent), 0.1)';
+
+      // Update the colors here
+      ctx.fillStyle = 'rgba(0, 123, 255, 0.5)'; // Blue fill color
+      ctx.strokeStyle = 'rgba(255, 0, 123, 0.1)'; // Pink stroke color
 
       points.current.forEach((point, i) => {
         point.x += point.vx;
