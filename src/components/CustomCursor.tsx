@@ -16,7 +16,7 @@ const CustomCursor = () => {
     const moveCursor = (e: MouseEvent) => {
       mouseX = e.clientX;
       mouseY = e.clientY;
-    };
+    }; 
 
     const animateCursor = () => {
       if (cursor && dot) {
