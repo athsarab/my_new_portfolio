@@ -12,7 +12,7 @@ const WebBackground = () => {
 
     const ctx = canvas.getContext('2d');
     if (!ctx) return; 
-
+  
     const resize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
