@@ -9,7 +9,7 @@ const CustomCursor = () => {
     const dot = dotRef.current;
  
     let mouseX = 0;
-    let mouseY = 0;
+    let mouseY = 0; 
     let cursorX = 0;
     let cursorY = 0;
 
