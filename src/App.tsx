@@ -6,6 +6,7 @@ import CustomCursor from './components/CustomCursor';
 import WebBackground from './components/WebBackground';
 import pic1 from './assets/my2.png';
 import { Home, User, Book, Briefcase } from 'lucide-react';
+import SocialCircle from './components/SocialCircle';
 
 
 // Tech icons data (place outside your component)
@@ -125,15 +126,18 @@ function App() {
               <button className="magnetic-button">View Projects</button>
               <button className="magnetic-button">Get in Touch</button>
             </div>
+                       <SocialCircle />
+                
           </motion.div>
-
           {/* Add your picture here */}
+
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             className="z-10"
           >
+            
             <img
               src={pic1}
               alt="Your Name"
