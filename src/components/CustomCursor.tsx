@@ -7,7 +7,7 @@ const CustomCursor = () => {
   useEffect(() => {
     const cursor = cursorRef.current;
     const dot = dotRef.current;
- 
+  
     let mouseX = 0;
     let mouseY = 0; 
     let cursorX = 0;
