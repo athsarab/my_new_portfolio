@@ -56,3 +56,4 @@ body {
     from-[rgb(var(--color-secondary))] to-[rgb(var(--color-accent))]
     animate-pulse;
 }
+
