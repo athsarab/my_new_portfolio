@@ -1,70 +1,89 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import { Github, Linkedin, Mail, ExternalLink, GraduationCap } from 'lucide-react';
 import CustomCursor from './components/CustomCursor';
 import WebBackground from './components/WebBackground';
-import pic1 from './assets/my2.png';
+import Navbar from './components/navbar';
+import pic1 from './assets/my7.png';
+import pic2 from './assets/my2.png';
+import dream from './assets/dreem.png';
+import shopping from './assets/eStore.jpg';
+import bus from './assets/busi.jpeg';
+import skillhive from './assets/skillhive.png';
+
 import { Home, User, Book, Briefcase } from 'lucide-react';
 import SocialCircle from './components/SocialCircle';
 
 
 // Tech icons data (place outside your component)
-//import ReactIcon from './icons/react.svg';
+import ReactIcon from './icons/react.svg';
 import DartIcon from './icons/icons8-dart.svg';
 import JavaScriptIcon from './icons/icons8-javascript.svg';
-//import TypeScriptIcon from './icons/typescript.svg';
-//import NodeJsIcon from './icons/nodejs.svg';
+import TypeScriptIcon from './icons/typescript.svg';
+import NodeJsIcon from './icons/nodejs.svg';
 import PythonIcon from './icons/icons8-python.svg';
 import JavaIcon from './icons/icons8-java.svg';
+import DockerIcon from './icons/docker.svg';
+import AzureIcon from './icons/azure.svg';
+import GitIcon from './icons/git.svg';
+import MySQLIcon from './icons/mysql.svg';
+import MongoDBIcon from './icons/mongodb.svg';
+import FlutterIcon from './icons/flutter.svg';
+import LinuxIcon from './icons/spring.svg';
+import HTML5Icon from './icons/html.svg';
+import CSS3Icon from './icons/css.svg';
+
+
+
+
+
+
 //import AndroidIcon from './icons/android.svg';
 //import C from './icons/icons8-c++.svg';
 /*
 import ReactNativeIcon from './icons/react-native.svg';
-import FlutterIcon from './icons/flutter.svg';
 import AWSIcon from './icons/aws.svg';
 import FirebaseIcon from './icons/firebase.svg';
-import AzureIcon from './icons/azure.svg';
-import DockerIcon from './icons/docker.svg';
+
 import KubernetesIcon from './icons/kubernetes.svg';
-import GitIcon from './icons/git.svg';
-import HTML5Icon from './icons/icons8-html-5.svg';
-import CSS3Icon from './icons/css3.svg';
 import SassIcon from './icons/sass.svg';
 import TailwindIcon from './icons/tailwind.svg';
 import GraphQLIcon from './icons/graphql.svg';
-import MySQLIcon from './icons/mysql.svg';
-import MongoDBIcon from './icons/mongodb.svg';
-import LinuxIcon from './icons/linux.svg';
+
 */
 const techIcons = {
-  //React: ReactIcon,
+  React: ReactIcon,
   Dart: DartIcon,
   
   JavaScript: JavaScriptIcon,
- // TypeScript: TypeScriptIcon,
- // 'Node.js': NodeJsIcon,
+ TypeScript: TypeScriptIcon,
+  'Node.js': NodeJsIcon,
   Python: PythonIcon,
   Java: JavaIcon,
+    Docker: DockerIcon,
+      Flutter: FlutterIcon,
+  MySQL: MySQLIcon,
+  MongoDB: MongoDBIcon,
+    Git: GitIcon,
+  Azure: AzureIcon,
+    Springboot: LinuxIcon,
+  HTML5: HTML5Icon,
+  CSS3: CSS3Icon,
+
  // Android: AndroidIcon,
   //C++: C,
   /*
   'React Native': ReactNativeIcon,
-  Flutter: FlutterIcon,
   AWS: AWSIcon,
   Firebase: FirebaseIcon,
   Azure: AzureIcon,
-  Docker: DockerIcon,
   Kubernetes: KubernetesIcon,
-  Git: GitIcon,
-  HTML5: HTML5Icon,
-  CSS3: CSS3Icon,
+
   Sass: SassIcon,
   Tailwind: TailwindIcon,
   GraphQL: GraphQLIcon,
-  MySQL: MySQLIcon,
-  MongoDB: MongoDBIcon,
-  Linux: LinuxIcon,
+
   */
 };
 
@@ -75,6 +94,110 @@ function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: nu
     </div>
   );
 }
+
+// Project data array
+const projects = [
+  {
+    img: dream,
+    title: 'Dream Destiny',
+    tags: ['React', 'Node.js'],
+    desc: 'A full-featured Travel management platform with Wether API, Simple chat bot, and user authentication.',
+    date: 'April 2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: skillhive,
+    title: 'Skill Hive',
+    tags: ['Springboot', 'React'],
+    desc: 'A collaborative Post management application with real-time updates, Social media aplication, and team features.',
+    date: 'Mar 2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img:shopping,
+    title: 'KIYARAA store',
+    tags: ['PHP', 'Javascript'],
+    desc: 'A responsive online shopping store website with project showcase sections , buy items , add cart options and admin dashboard.',
+    date: 'Jan 2024',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: bus,
+    title: 'Bus management system',
+    tags: ['MERN', 'API'],
+    desc: 'A web application that manage bus time table , sheet bookings , packages and drivers it helps to pasengers and drivers .',
+    date: 'Nov 2024',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: '/path-to-project5-image.jpg',
+    title: 'Recipe Finder',
+    tags: ['PHP', 'Javascript'],
+    desc: 'An application that helps users find recipes based on ingredients they have, with nutritional information.',
+    date: 'Aug 2023',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: '/path-to-project6-image.jpg',
+    title: 'SARAA Renters',
+    tags: ['Java', 'MySql'],
+    desc: 'A comprehensive Wehicle rent web application with tracking vehicles, progress visualization, and goal setting.',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: '/path-to-project6-image.jpg',
+    title: 'Fruit catch game',
+    tags: ['Kotlin', 'XML'],
+    desc: 'That game developed using kotlin it easy to catch fruits and get scores.',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+    {
+    img: '/path-to-project6-image.jpg',
+    title: 'Phone Book',
+    tags: ['Kotline', 'MySqlite'],
+    desc: 'User can save their mobile numbers .',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+    {
+    img: '/path-to-project6-image.jpg',
+    title: 'Space Invaders',
+    tags: ['Flutter', 'Dart'],
+    desc: 'only mobile interface developed using flutter.',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+      {
+    img: '/path-to-project6-image.jpg',
+    title: 'Number Book',
+    tags: ['Flutter', 'Dart'],
+    desc: 'only mobile app with backend developed using flutter.',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+    {
+    img: '/path-to-project6-image.jpg',
+    title: 'Selenium test cases',
+    tags: ['API', 'Python'],
+    desc: 'Manually written test cases using python.',
+    date: 'May 2024',
+    code: '#',
+    demo: '#',
+  },
+  
+];
 
 function App() {
   const scrollToSection = (id: string) => {
@@ -91,74 +214,110 @@ function App() {
     }
   };
 
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
+
   return (
     <>   
       <CustomCursor />
       <WebBackground />
-      
+      <Navbar/>
       <div className="relative min-h-screen">
         {/* Hero Section */}
-        <section id="hero" className="min-h-screen flex items-center justify-between relative px-4 md:px-4 lg:px-12">
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-left z-100 max-w-xlg mb-52"
-          >
-            <h1 className="text-6xl font-bold mb-6 text-gray-100">
-              <TypeAnimation
-                sequence={[
-                  'Hi, I\'m Athsara',
-                  1000,
-                  'I Create Digital Magic',
-                  1000,
-                ]}
-                wrapper="span"
-                speed={50}
-                repeat={Infinity}
-                className="glow-text"
-              />
-            </h1>
-            <p className="text-xl mb-8 text-gray-300">
-              Full Stack Developer | Android Enthusiast | UI Magician
-            </p>
-            <div className="flex gap-4">
-              <button className="magnetic-button">View Projects</button>
-              <button className="magnetic-button">Get in Touch</button>
-            </div>
-                       <SocialCircle />
-                
-          </motion.div>
-          {/* Add your picture here */}
+<section id="hero" className="min-h-screen flex flex-col lg:flex-row items-center justify-between relative px-4 md:px-6 lg:px-12 overflow-hidden">
+  {/* Animated background elements - Tailwind only */}
+  <div className="absolute inset-0 overflow-hidden z-0">
+    <div className="absolute top-20 left-20 w-40 h-40 bg-purple-500 rounded-full blur-3xl opacity-20 animate-bounce"></div>
+    <div className="absolute bottom-10 right-20 w-60 h-60 bg-blue-500 rounded-full blur-3xl opacity-20 animate-bounce animation-delay-2000"></div>
+    <div className="absolute top-1/2 left-1/3 w-32 h-32 bg-pink-500 rounded-full blur-3xl opacity-20 animate-bounce animation-delay-4000"></div>
+  </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            className="z-10"
-          >
-            
-            <img
-              src={pic1}
-              alt="Your Name"
-              className="w-full h-auto max-w-lg object-contain" // Responsive and fits the page
-              />
-          </motion.div>
-        </section>
+  {/* Text content - adjusted for mobile first */}
+  <motion.div
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.8 }}
+    className="text-left z-10 w-full lg:max-w-2xl mt-20 lg:mt-0 lg:mb-0 order-2 lg:order-1"
+  >
+    <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-gray-100">
+      <TypeAnimation
+        sequence={[
+          'Hi, I\'m Athsara',
+          1000,
+          'I Create Digital Magic',
+          1000,
+          'I Build Web Experiences',
+          1000,
+          'I Design Mobile Apps',
+          1000
+        ]}
+        wrapper="span"
+        speed={50}
+        repeat={Infinity}
+        className="bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent"
+      />
+    </h1>
+    <p className="text-lg md:text-xl mb-6 md:mb-8 text-gray-300">
+      Full Stack Developer | Android Enthusiast | UI Magician
+    </p>
 
-        {/* About Section */}
-        <section id="about" className="min-h-screen py-20 px-4">
+    <div className="flex flex-wrap gap-3 md:gap-4">
+      <button className="magnetic-button bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/30 px-6 py-3 rounded-full font-medium">
+        View Projects
+      </button>
+      <button className="magnetic-button bg-transparent border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white transition-all duration-300 hover:scale-105 px-6 py-3 rounded-full font-medium">
+        Get in Touch
+      </button>
+    </div>
+    
+    {/* Tech stack badges */}
+    <div className="mt-8 md:mt-10 flex flex-wrap gap-2 md:gap-3">
+      {['React', 'Node.js', 'Flutter', 'Kotlin', 'TypeScript', 'Figma'].map((tech) => (
+        <span key={tech} className="px-3 py-1 bg-gray-800 bg-opacity-60 rounded-full text-xs md:text-sm text-gray-300 border border-gray-700 hover:bg-purple-900 hover:border-purple-400 transition-all">
+          {tech}
+        </span>
+      ))}
+    </div>
+  </motion.div>
+
+  <SocialCircle />
+
+  {/* Image with floating animation - adjusted for mobile */}
+  <motion.div
+    initial={{ opacity: 0, x: 50 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ duration: 0.8 }}
+    className="z-10 relative w-full lg:w-auto mt-8 md:mt-12 lg:mt-0 order-3"
+  >
+    <div className="relative mx-auto w-64 sm:w-80 md:w-96 lg:w-full">
+      <img
+        src={pic1}
+        alt="Athsara"
+        className="w-full h-auto max-w-md object-contain rounded-tl-3xl rounded-br-3xl border-4 border-purple-400 border-opacity-30 shadow-2xl hover:shadow-purple-500/50 transition-all duration-500"
+      />
+      {/* Glow effect */}
+      <div className="absolute inset-0 bg-purple-500 rounded-tl-3xl rounded-br-3xl opacity-0 hover:opacity-10 transition-opacity duration-300 -z-10"></div>
+    </div>
+    
+    {/* Floating circles decoration */}
+    <div className="absolute -bottom-5 -left-5 w-20 h-20 rounded-full bg-blue-500 opacity-20 blur-xl -z-10 animate-pulse"></div>
+    <div className="absolute -top-5 -right-5 w-16 h-16 rounded-full bg-pink-500 opacity-20 blur-xl -z-10 animate-pulse animation-delay-1000"></div>
+  </motion.div>
+</section>
+
+{/* About Section */}
+<section id="about" className="min-h-screen py-16 px-4 flex items-center justify-center">
   {/* About Me Section */}
   <motion.div
     initial={{ opacity: 0 }}
     whileInView={{ opacity: 1 }}
     transition={{ duration: 0.8 }}
-    className="max-w-6xl mx-auto mb-52" // mb-32 = 8rem
-    >
+    className="w-full max-w-7xl mx-auto" // Reduced from max-w-8xl to max-w-4xl
+  >
     <h2 className="text-4xl font-bold mb-12 text-center glow-text">About Me</h2>
     
-    <div className="glass-card p-8  relative overflow-hidden">
-      {/* Decorative SVG elements */}
+    <div className="bg-gradient-to-br from-900/30 to-indigo-900/20 backdrop-blur-sm p-8 rounded-xl border border-white/10 relative overflow-hidden shadow-2xl shadow-purple-500/10">
+      {/* Decorative elements */}
       <div className="absolute -top-20 -right-20 opacity-20">
         <svg width="300" height="300" viewBox="0 0 200 200">
           <path
@@ -169,13 +328,13 @@ function App() {
         </svg>
       </div>
       
-      <div className="relative z-10 grid md:grid-cols-2 gap-8 items-center">
+      <div className="relative z-10 grid md:grid-cols-2 gap-12 items-center">
         <div>
           <motion.h3 
             initial={{ x: -50 }}
             whileInView={{ x: 0 }}
             transition={{ type: "spring", stiffness: 100 }}
-            className="text-2xl font-semibold mb-4"
+            className="text-2xl font-semibold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-indigo-300"
           >
             My Journey
           </motion.h3>
@@ -184,33 +343,46 @@ function App() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.8 }}
-            className="text-gray-300 leading-relaxed mb-6"
+            className="text-gray-300 leading-relaxed mb-6 text-sm md:text-base"
           >
-            With over 5 years of experience in software development, I've worked on
-            projects ranging from mobile apps to enterprise solutions. My passion
-            lies in creating beautiful, intuitive interfaces that make complex
-            problems simple.
+Hi! I'm Athsara, a passionate and driven third-year Information Technology undergraduate at SLIIT, specializing in Android development and front-end web development. With a solid foundation in software engineering principles and hands-on experience in full-stack development, I strive to build impactful, user-focused applications that solve real-world problems.
+
+            <br /><br />
+Over the past few years, I’ve developed various web and mobile applications—notably, an Online Class Management System and a Task Management App—demonstrating my ability to deliver robust, scalable, and efficient solutions. I enjoy taking ideas from concept to production using modern tools and clean code practices.
+
+            <br /><br />
+I'm fluent in both Sinhala and English, allowing me to work seamlessly in multicultural environments and collaborate effectively with diverse teams.
+
+<br /><br />
+Currently, I'm actively seeking anouther internship opportunities where I can apply my skills, learn from real-world challenges, and contribute meaningfully to innovative projects. I’m eager to grow as a developer, take on new responsibilities, and be a part of dynamic teams that shape the future of technology.
           </motion.p>
           
           <motion.div 
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="flex flex-wrap gap-4"
+            className="flex flex-wrap gap-3 mt-6"
           >
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 rounded-full bg-indigo-600/20 border border-indigo-500"
+              className="px-4 py-2 rounded-full bg-indigo-600/30 border border-indigo-400/30 backdrop-blur-sm"
             >
-              <span className="text-indigo-300">🏆 10+ Projects</span>
+              <span className="text-indigo-200 text-sm">🏆 10+ Projects</span>
             </motion.div>
             <motion.div 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-4 py-2 rounded-full bg-purple-600/20 border border-purple-500"
+              className="px-4 py-2 rounded-full bg-purple-600/30 border border-purple-400/30 backdrop-blur-sm"
             >
-              <span className="text-purple-300">🚀 Fast Delivery</span>
+              <span className="text-purple-200 text-sm">🚀 Fast Learner</span>
+            </motion.div>
+            <motion.div 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-4 py-2 rounded-full bg-pink-600/30 border border-pink-400/30 backdrop-blur-sm"
+            >
+              <span className="text-pink-200 text-sm">💻 Full-Stack Skills</span>
             </motion.div>
           </motion.div>
         </div>
@@ -222,30 +394,32 @@ function App() {
           className="flex justify-center"
         >
           <div className="relative">
-            <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-white/10">
-              {/* Replace with your actual image or SVG */}
-              <svg viewBox="0 0 200 200" className="w-full h-full">
-                <defs>
-                  <pattern id="image" x="0" y="0" width="1" height="1">
-                    <image x="0" y="0" width="200" height="200" xlinkHref="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" />
-                  </pattern>
-                </defs>
-                <circle cx="100" cy="100" r="90" fill="url(#image)" />
-              </svg>
+            <div className="w-48 h-48 md:w-56 md:h-56 rounded-full overflow-hidden border-4 border-white/20 shadow-lg">
+              <img
+                src={pic2}
+                alt="Riva"
+                className="w-full h-full object-cover"
+              />
             </div>
             <motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-              className="absolute -top-8 -left-8 -z-10"
+              className="absolute -top-6 -left-6 -z-10 w-40 h-40 opacity-60"
             >
-              <svg width="120" height="120" viewBox="0 0 100 100">
+              <svg width="100%" height="100%" viewBox="0 0 100 100">
                 <path
                   fill="none"
-                  stroke="#4F46E5"
+                  stroke="url(#gradient)"
                   strokeWidth="1"
                   strokeDasharray="5,5"
                   d="M50,5 a45,45 0 0,1 0,90 a45,45 0 0,1 0,-90"
                 />
+                <defs>
+                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#8B5CF6" />
+                    <stop offset="100%" stopColor="#EC4899" />
+                  </linearGradient>
+                </defs>
               </svg>
             </motion.div>
           </div>
@@ -253,7 +427,7 @@ function App() {
       </div>
     </div>
   </motion.div>
-  </section>
+</section>
 
   {/* Experience Section */}
 <section id="experience" className="min-h-screen py-20 px-4">
@@ -287,7 +461,7 @@ function App() {
         {/* Animated card */}
         <motion.div
           whileHover={{ y: -5 }}
-          className="bg-gray-800/50 p-6 rounded-xl shadow-lg backdrop-blur-sm border-l-4 border-indigo-500 md:ml-8"
+          className="bg-800/50 p-6 rounded-xl shadow-lg backdrop-blur-sm border-l-4 border-indigo-500 md:ml-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-start mb-4">
             <div>
@@ -558,6 +732,98 @@ function App() {
   </div>
 </section>
 
+{/* Projects Section */}
+<section id="projects" className="min-h-screen py-20 px-4 bg-to-b from-gray-900 to-gray-800">
+  <div className="max-w-6xl mx-auto">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8 }}
+      className="mb-16 text-center"
+    >
+      <h2 className="text-4xl font-bold mb-12 text-center glow-text">My Projects</h2>
+      <div className="w-20 h-1 bg-indigo-500 mx-auto"></div>
+      <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+        Here are some of my notable projects. Each one represents a unique challenge and learning opportunity.
+      </p>
+    </motion.div>
+
+    {/* Projects Grid */}
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {visibleProjects.map((project, idx) => (
+        <motion.div
+          key={project.title + idx}
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 * idx }}
+          whileHover={{ y: -10 }}
+          className="bg-gray-800/50 rounded-xl overflow-hidden shadow-lg border border-gray-700/50 backdrop-blur-sm"
+        >
+          <div className="relative h-48 overflow-hidden">
+            <img 
+              src={project.img} 
+              alt={project.title} 
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+            />
+            <div className="absolute inset-0 bg-indigo-600/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
+              <a 
+                href={project.code}
+                className="bg-white text-indigo-600 px-4 py-2 rounded-full font-medium flex items-center"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
+                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
+                </svg>
+                View Code
+              </a>
+            </div>
+          </div>
+          <div className="p-6">
+            <div className="flex justify-between items-start mb-3">
+              <h3 className="text-xl font-bold text-white">{project.title}</h3>
+              <div className="flex space-x-2">
+                {project.tags.map((tag) => (
+                  <span key={tag} className="bg-indigo-600/20 text-indigo-400 text-xs px-2 py-1 rounded-full">{tag}</span>
+                ))}
+              </div>
+            </div>
+            <p className="text-gray-400 mb-4">{project.desc}</p>
+            <div className="flex items-center justify-between">
+              <div className="flex items-center space-x-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+                </svg>
+                <a href={project.demo} className="text-indigo-400 hover:text-indigo-300 text-sm">Live Demo</a>
+              </div>
+              <span className="text-xs text-gray-500">{project.date}</span>
+            </div>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+    {/* View More Button */}
+    {projects.length > 6 && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.6 }}
+        className="text-center mt-16"
+      >
+        <motion.button
+          onClick={() => setShowAllProjects((v) => !v)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="inline-flex items-center px-6 py-3 border border-indigo-600 text-indigo-400 rounded-full hover:bg-indigo-600/20 transition-colors"
+        >
+          {showAllProjects ? 'Show Less' : 'View All Projects'}
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
+            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
+          </svg>
+        </motion.button>
+      </motion.div>
+    )}
+  </div>
+</section>
+
 
   <section id="skill" className="min-h-screen py-20 px-4">
 
@@ -617,7 +883,7 @@ function App() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               whileHover={{ scale: 1.1 }}
-              className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm"
+              className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
             >
               
               <div className="text-4xl mb-2">
@@ -697,35 +963,78 @@ function App() {
         </section>
       </div>
 
-       {/* Floating Icon Bar */}
-       <nav className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-gray-900/80 backdrop-blur-lg py-4 px-6 rounded-full shadow-lg z-50">
-        <div className="flex gap-6">
-          <button onClick={() => scrollToSection('hero')} className="text-white flex flex-col items-center">
-            <Home className="w-6 h-6" />
-            <span className="text-sm">Home</span>
-          </button>
-          <button onClick={() => scrollToSection('about')} className="text-white flex flex-col items-center">
-            <User className="w-6 h-6" />
-            <span className="text-sm">About</span>
-          </button>
-          <button onClick={() => scrollToSection('skill')} className="text-white flex flex-col items-center">
-            <Book className="w-6 h-6" />
-            <span className="text-sm">Education</span>
-          </button>
-          <button onClick={() => scrollToSection('education')} className="text-white flex flex-col items-center">
-            <Book className="w-6 h-6" />
-            <span className="text-sm">Education</span>
-          </button>
-          <button onClick={() => scrollToSection('projects')} className="text-white flex flex-col items-center">
-            <Briefcase className="w-6 h-6" />
-            <span className="text-sm">Projects</span>
-          </button>
-          <button onClick={() => scrollToSection('contact')} className="text-white flex flex-col items-center">
-            <Mail className="w-6 h-6" />
-            <span className="text-sm">Contact</span>
-          </button>
-        </div>
-      </nav>
+{/* Enhanced Floating Navigation Bar */}
+<nav className="fixed bottom-8 left-1/2 transform -translate-x-1/2 bg-800/90 backdrop-blur-md py-3 px-4 rounded-full shadow-xl z-50 border border-gray-700/50 hover:shadow-2xl transition-all duration-300">
+  <div className="flex gap-4 md:gap-6">
+    <button 
+      onClick={() => scrollToSection('hero')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="Home"
+    >
+      <div className="p-2 rounded-full group-hover:bg-indigo-500/20 transition-all duration-300">
+        <Home className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">Home</span>
+    </button>
+    
+    <button 
+      onClick={() => scrollToSection('about')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="About"
+    >
+      <div className="p-2 rounded-full group-hover:bg-blue-500/20 transition-all duration-300">
+        <User className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">About</span>
+    </button>
+    
+
+    
+    <button 
+      onClick={() => scrollToSection('education')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="Education"
+    >
+      <div className="p-2 rounded-full group-hover:bg-purple-500/20 transition-all duration-300">
+        <GraduationCap className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">Education</span>
+    </button>
+    
+    <button 
+      onClick={() => scrollToSection('projects')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="Projects"
+    >
+      <div className="p-2 rounded-full group-hover:bg-amber-500/20 transition-all duration-300">
+        <Briefcase className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">Projects</span>
+    </button>
+
+        <button 
+      onClick={() => scrollToSection('skill')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="Skills"
+    >
+      <div className="p-2 rounded-full group-hover:bg-emerald-500/20 transition-all duration-300">
+        <Book className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">Skills</span>
+    </button>
+    
+    <button 
+      onClick={() => scrollToSection('contact')} 
+      className="text-white/90 hover:text-white flex flex-col items-center group transition-all duration-200"
+      aria-label="Contact"
+    >
+      <div className="p-2 rounded-full group-hover:bg-rose-500/20 transition-all duration-300">
+        <Mail className="w-5 h-5 md:w-6 md:h-6 group-hover:scale-110 transition-transform duration-200" />
+      </div>
+      <span className="text-xs md:text-sm opacity-0 group-hover:opacity-100 mt-1 transition-opacity duration-300">Contact</span>
+    </button>
+  </div>
+</nav>
     </>
   );
   
