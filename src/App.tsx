@@ -14,6 +14,7 @@ import skillhive from './assets/skillhive.png';
 
 import { Home, User, Book, Briefcase } from 'lucide-react';
 import SocialCircle from './components/SocialCircle';
+import './animations.css';
 
 
 // Tech icons data (place outside your component) 
@@ -811,26 +812,7 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
   >
     <h2 className="text-4xl font-bold mb-12 text-center glow-text">My Skills</h2>
 
-    <div className="glass-card p-8 relative overflow-hidden">
-
-      {/* === MOVING BACKGROUND TECH ICONS === */}
-      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
-        {Object.keys(techIcons).map((name, i) => (
-          <motion.div
-            key={i}
-            className="absolute"
-            initial={{ x: -200, y: Math.random() * 500 }}
-            animate={{ x: "110%" }}
-            transition={{
-              duration: 10 + Math.random() * 10,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-          >
-            <TechIcon name={name} size={32} />
-          </motion.div>
-        ))}
-      </div>
+    <div className="glass-card p-8 relative overflow-hidden min-h-[500px]">
 
       {/* === MAIN CONTENT === */}
       <div className="relative z-10">
@@ -838,25 +820,93 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
           initial={{ y: -20 }}
           whileInView={{ y: 0 }}
           transition={{ type: "spring", stiffness: 100 }}
-          className="text-2xl font-semibold mb-8 text-center"
+          className="text-2xl font-semibold mb-12 text-center"
         >
           Technologies I Work With
         </motion.h3>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Object.entries(techIcons).map(([name, icon]) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
-              className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
-            >
-              <TechIcon name={name} size={40} />
-              <p className="font-medium mt-2">{name}</p>
-            </motion.div>
-          ))}
+        {/* Multiple rows of moving icons */}
+        <div className="space-y-8">
+          {/* First Row - Left to Right */}
+          <div className="relative h-24 overflow-hidden">
+            <div className="absolute flex gap-8 animate-scroll-left">
+              {Object.entries(techIcons).slice(0, 8).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row1-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {Object.entries(techIcons).slice(0, 8).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row1-dup-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: 5 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Second Row - Right to Left */}
+          <div className="relative h-24 overflow-hidden">
+            <div className="absolute flex gap-8 animate-scroll-right">
+              {Object.entries(techIcons).slice(8).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row2-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {Object.entries(techIcons).slice(8).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row2-dup-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: -5 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Third Row - Left to Right (Faster) */}
+          <div className="relative h-24 overflow-hidden">
+            <div className="absolute flex gap-8 animate-scroll-left-fast">
+              {Object.entries(techIcons).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row3-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+              {/* Duplicate for seamless loop */}
+              {Object.entries(techIcons).map(([name, icon], idx) => (
+                <motion.div
+                  key={`row3-dup-${name}-${idx}`}
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
+                >
+                  <TechIcon name={name} size={48} />
+                  <p className="font-medium mt-2 text-sm">{name}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
 
