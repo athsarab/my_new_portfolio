@@ -87,7 +87,7 @@ const techIcons = {
   */
 };
 
-function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: number }) {
+function TechIcon({ name, size = 32 }) {
   return (
     <div title={name} style={{ fontSize: size }}>
       <img src={techIcons[name]} alt={name} style={{ width: size, height: size }} />
@@ -200,7 +200,7 @@ const projects = [
 ];
 
 function App() {
-  const scrollToSection = (id: string) => {
+  const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) {
       const offset = 100; // Offset for fixed nav bar
@@ -568,8 +568,8 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
     </div>
 
     {/* Skills Cloud */}
- 
-
+  </div>
+</section>
 
 {/* Education Section */}
 <section id="education" className="min-h-screen py-20 px-4">
@@ -799,7 +799,9 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
   </div>
 </section>
 
-<section id="skill" className="min-h-screen py-20 px-4 overflow-hidden">
+
+
+ <section id="skill" className="min-h-screen py-20 px-4 overflow-hidden">
 
   <motion.div
     initial={{ opacity: 0 }}
@@ -825,7 +827,7 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
               ease: "linear",
             }}
           >
-            <TechIcon name={name as keyof typeof techIcons} size={32} />
+            <TechIcon name={name} size={32} />
           </motion.div>
         ))}
       </div>
@@ -851,7 +853,7 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
               whileHover={{ scale: 1.1 }}
               className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
             >
-              <TechIcon name={name as keyof typeof techIcons} size={40} />
+              <TechIcon name={name} size={40} />
               <p className="font-medium mt-2">{name}</p>
             </motion.div>
           ))}
@@ -863,10 +865,7 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
 
 </section>
 
-  );
-}
-
-
+  
 
 
         {/* Contact Section */}
@@ -1005,7 +1004,6 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
 </nav>
     </>
   );
-  
 }
 
 export default App;
