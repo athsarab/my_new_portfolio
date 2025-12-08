@@ -824,81 +824,84 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
   </div>
 </section>
 
+import { motion } from "framer-motion";
+import TechIcon from "./TechIcon"; // keep your existing component
 
-  <section id="skill" className="min-h-screen py-20 px-4">
+export default function SkillsSection() {
+  const techList = Object.entries(techIcons);
 
+  return (
+    <section id="skill" className="min-h-screen py-20 px-4 overflow-hidden">
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-7xl mx-auto"
+      >
+        <h2 className="text-4xl font-bold mb-12 text-center glow-text">
+          My Skills
+        </h2>
 
-  {/* Skills Section */}
-  <motion.div
-    initial={{ opacity: 0 }}
-    whileInView={{ opacity: 1 }}
-    transition={{ duration: 0.8 }}
-    className="max-w-7xl mx-auto"
-  >
-    <h2 className="text-4xl font-bold mb-12 text-center glow-text">My Skills</h2>
-    
-    <div className="glass-card p-8 relative overflow-hidden">
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        {[...Array(12)].map((_, i) => (
-          <motion.div
-            key={i}
-            animate={{
-              x: [0, 100, 0],
-              y: [0, 50, 0],
-              rotate: [0, 360],
-            }}
-            transition={{
-              duration: 20 + Math.random() * 20,
-              repeat: Infinity,
-              repeatType: "reverse",
-              ease: "linear",
-            }}
-            style={{
-              position: 'absolute',
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-            }}
-          >
-            <TechIcon name={Object.keys(techIcons)[i % Object.keys(techIcons).length] as keyof typeof techIcons} size={24} />
-          </motion.div>
-        ))}
-      </div>
-      
-      <div className="relative z-10">
-        <motion.h3 
-          initial={{ y: -20 }}
-          whileInView={{ y: 0 }}
-          transition={{ type: "spring", stiffness: 100 }}
-          className="text-2xl font-semibold mb-8 text-center"
-        >
-          Technologies I Work With
-        </motion.h3>
-        
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {Object.entries(techIcons).map(([name, icon]) => (
-            <motion.div
-              key={name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              whileHover={{ scale: 1.1 }}
-              className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
+        <div className="glass-card p-8 relative overflow-hidden">
+          
+          {/* MOVING ANIMATED BACKGROUND ITEMS */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-20">
+            {techList.map(([name, icon], index) => (
+              <motion.div
+                key={index}
+                className="absolute"
+                initial={{ x: -200, y: Math.random() * 500 }}
+                animate={{ x: "110%" }}
+                transition={{
+                  duration: 10 + Math.random() * 10,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
+              >
+                <img
+                  src={icon}
+                  alt={name}
+                  className="w-10 h-10 opacity-40"
+                />
+              </motion.div>
+            ))}
+          </div>
+
+          {/* MAIN CONTENT */}
+          <div className="relative z-10">
+            <motion.h3
+              initial={{ y: -20 }}
+              whileInView={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 100 }}
+              className="text-2xl font-semibold mb-8 text-center"
             >
-              
-              <div className="text-4xl mb-2">
-                <img src={icon} alt={name} style={{ width: 32, height: 32 }} />
-              </div>
-              <p className="font-medium">{name}</p>
-            </motion.div>
-          ))}
+              Technologies I Work With
+            </motion.h3>
+
+            {/* Grid of tech icons */}
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {techList.map(([name, icon]) => (
+                <motion.div
+                  key={name}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  whileHover={{ scale: 1.1 }}
+                  className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
+                >
+                  <img src={icon} alt={name} className="w-8 h-8 mb-2" />
+                  <p className="font-medium">{name}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    
-  </motion.div>
-  
-</section>
+      </motion.div>
+    </section>
+  );
+}
+
+
 
 
         {/* Contact Section */}
