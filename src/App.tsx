@@ -568,32 +568,70 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
     </div>
 
     {/* Skills Cloud */}
-    <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      transition={{ delay: 0.4 }}
-      className="mt-16"
-    >
-      <h3 className="text-2xl font-semibold text-center text-white mb-8">Technologies Worked With</h3>
-      <div className="flex flex-wrap justify-center gap-3">
-        {['ERP Systems', 'Flutter', 'Dart', 'Selenium', 'Next.js', 'React', 
-          'System Integration', 'UI/UX Design', 'Automation', 'Data Management',
-          'JavaScript', 'TypeScript', 'Testing', 'Mobile Development'].map((skill, i) => (
+<section id="skill" className="min-h-screen py-20 px-4 overflow-hidden">
+
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.8 }}
+    className="max-w-7xl mx-auto"
+  >
+    <h2 className="text-4xl font-bold mb-12 text-center glow-text">My Skills</h2>
+
+    <div className="glass-card p-8 relative overflow-hidden">
+
+      {/* === MOVING BACKGROUND TECH ICONS === */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+        {Object.keys(techIcons).map((name, i) => (
           <motion.div
             key={i}
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            transition={{ delay: i * 0.05 }}
-            whileHover={{ scale: 1.1, backgroundColor: 'rgba(99, 102, 241, 0.3)' }}
-            className="px-4 py-2 bg-gray-700/40 rounded-full border border-gray-600 text-sm cursor-default"
+            className="absolute"
+            initial={{ x: -200, y: Math.random() * 500 }}
+            animate={{ x: "110%" }}
+            transition={{
+              duration: 10 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
           >
-            {skill}
+            <TechIcon name={name as keyof typeof techIcons} size={32} />
           </motion.div>
         ))}
       </div>
-    </motion.div>
-  </div>
+
+      {/* === MAIN CONTENT === */}
+      <div className="relative z-10">
+        <motion.h3
+          initial={{ y: -20 }}
+          whileInView={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+          className="text-2xl font-semibold mb-8 text-center"
+        >
+          Technologies I Work With
+        </motion.h3>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {Object.entries(techIcons).map(([name, icon]) => (
+            <motion.div
+              key={name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              whileHover={{ scale: 1.1 }}
+              className="flex flex-col items-center p-6 rounded-xl bg-gradient-to-br from-white/5 to-white/10 backdrop-sm"
+            >
+              <TechIcon name={name as keyof typeof techIcons} size={40} />
+              <p className="font-medium mt-2">{name}</p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+    </div>
+  </motion.div>
+
 </section>
+
 
 
 {/* Education Section */}
