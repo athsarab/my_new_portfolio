@@ -14,7 +14,6 @@ import skillhive from './assets/skillhive.png';
 
 import { Home, User, Book, Briefcase } from 'lucide-react';
 import SocialCircle from './components/SocialCircle';
-import './animations.css';
 
 
 // Tech icons data (place outside your component) 
@@ -88,7 +87,7 @@ const techIcons = {
   */
 };
 
-function TechIcon({ name, size = 32 }) {
+function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: number }) {
   return (
     <div title={name} style={{ fontSize: size }}>
       <img src={techIcons[name]} alt={name} style={{ width: size, height: size }} />
@@ -201,7 +200,7 @@ const projects = [
 ];
 
 function App() {
-  const scrollToSection = (id) => {
+  const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
     if (section) {
       const offset = 100; // Offset for fixed nav bar
@@ -449,11 +448,204 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
       {/* Vertical timeline line */}
       <div className="absolute left-8 md:left-1/2 h-full w-0.5 bg-indigo-500/30 transform -translate-x-1/2 hidden md:block"></div>
 
-      {/* Experience Item - Cloud ARM */}
+      {/* Experience Item 1 - Ronan Group International */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
+        className="relative mb-12 pl-10 md:pl-0"
+      >
+        {/* Timeline dot */}
+        <div className="absolute left-0 md:left-1/2 h-5 w-5 rounded-full bg-indigo-500 border-4 border-indigo-300 transform -translate-x-1/2 -translate-y-1 z-10"></div>
+
+        {/* Animated card */}
+        <motion.div
+          whileHover={{ y: -5 }}
+          className="bg-800/50 p-6 rounded-xl shadow-lg backdrop-blur-sm border-l-4 border-indigo-500 md:ml-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-start mb-4">
+            <div>
+              <h3 className="text-2xl font-bold text-white">Lead / Main Developer (Fullstack)</h3>
+              <p className="text-indigo-300">Ronan Group International — Remote</p>
+            </div>
+            <div className="mt-2 md:mt-0 px-3 py-1 bg-indigo-500/20 rounded-full">
+              <p className="text-indigo-100 text-sm">Mar 2025 – Present</p>
+            </div>
+          </div>
+
+          {/* Role Cards */}
+          <div className="grid gap-4 mt-6">
+            {/* Job Portal Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div 
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 6 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">Job Portal Development (MERN)</h4>
+                  <p className="text-gray-300 text-sm">Led development and production rollout with integrated payment gateway (PayPal), subscription and one-time payments</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* CI/CD Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ repeat: Infinity, duration: 3 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">DevOps & Infrastructure</h4>
+                  <p className="text-gray-300 text-sm">Architected CI/CD pipelines (GitHub Actions, Docker), deployment automation and monitoring for production services</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Leadership Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div
+                  animate={{ scale: [1, 1.1, 1] }}
+                  transition={{ repeat: Infinity, duration: 4 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">Team Leadership & Mentorship</h4>
+                  <p className="text-gray-300 text-sm">Managed stakeholder requirements, mentored junior developers, performed code reviews and handled production incidents</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Experience Item 2 - Hungarian Restaurant Management */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative mb-12 pl-10 md:pl-0"
+      >
+        {/* Timeline dot */}
+        <div className="absolute left-0 md:left-1/2 h-5 w-5 rounded-full bg-indigo-500 border-4 border-indigo-300 transform -translate-x-1/2 -translate-y-1 z-10"></div>
+
+        {/* Animated card */}
+        <motion.div
+          whileHover={{ y: -5 }}
+          className="bg-800/50 p-6 rounded-xl shadow-lg backdrop-blur-sm border-l-4 border-indigo-500 md:mr-8"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-start mb-4">
+            <div>
+              <h3 className="text-2xl font-bold text-white">Full-Stack Developer</h3>
+              <p className="text-indigo-300">Hungarian Restaurant Management System</p>
+            </div>
+            <div className="mt-2 md:mt-0 px-3 py-1 bg-indigo-500/20 rounded-full">
+              <p className="text-indigo-100 text-sm">Sep 2024 – Feb 2025</p>
+            </div>
+          </div>
+
+          {/* Role Cards */}
+          <div className="grid gap-4 mt-6">
+            {/* Restaurant System Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div 
+                  animate={{ rotate: [0, 10, -10, 0] }}
+                  transition={{ repeat: Infinity, duration: 6 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">Full-Stack Restaurant System</h4>
+                  <p className="text-gray-300 text-sm">Developed customer ordering, kitchen/cashier dashboards, inventory control, menu recipe management and SMS notifications</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* API Development Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div
+                  animate={{ y: [0, -3, 0] }}
+                  transition={{ repeat: Infinity, duration: 3 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">REST API & Security</h4>
+                  <p className="text-gray-300 text-sm">Built secure REST APIs (Node.js + Express) with JWT authentication, file uploads (Multer), and MongoDB data modeling</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Deployment Card */}
+            <motion.div 
+              whileHover={{ scale: 1.02 }}
+              className="bg-gray-700/40 p-4 rounded-lg border border-gray-600/50"
+            >
+              <div className="flex items-start">
+                <motion.div
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ repeat: Infinity, duration: 5 }}
+                  className="bg-indigo-500/20 p-2 rounded-lg mr-4"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-indigo-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                  </svg>
+                </motion.div>
+                <div>
+                  <h4 className="text-lg font-semibold text-white mb-1">Deployment & Reliability</h4>
+                  <p className="text-gray-300 text-sm">Automated deployment (Vercel, Render), added validation, logging, and health checks. Reduced order-processing time and improved stock accuracy</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </motion.div>
+
+      {/* Experience Item 3 - Cloud ARM */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
         className="relative mb-12 pl-10 md:pl-0"
       >
         {/* Timeline dot */}
@@ -798,11 +990,10 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
       </motion.div>
     )}
   </div>
+    {/* skill section */}
 </section>
 
-
-
- <section id="skill" className="min-h-screen py-20 px-4 overflow-hidden">
+<section id="skill" className="py-12 px-4 overflow-hidden">
 
   <motion.div
     initial={{ opacity: 0 }}
@@ -812,7 +1003,26 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
   >
     <h2 className="text-4xl font-bold mb-12 text-center glow-text">My Skills</h2>
 
-    <div className="glass-card p-8 relative overflow-hidden min-h-[500px]">
+    <div className=" p-8 relative overflow-hidden">
+
+      {/* === MOVING BACKGROUND TECH ICONS === */}
+      <div className="absolute inset-0 pointer-events-none opacity-20 overflow-hidden">
+        {Object.keys(techIcons).map((name, i) => (
+          <motion.div
+            key={i}
+            className="absolute"
+            initial={{ x: -200, y: Math.random() * 500 }}
+            animate={{ x: "110%" }}
+            transition={{
+              duration: 10 + Math.random() * 10,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            <TechIcon name={name as keyof typeof techIcons} size={32} />
+          </motion.div>
+        ))}
+      </div>
 
       {/* === MAIN CONTENT === */}
       <div className="relative z-10">
@@ -820,93 +1030,47 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
           initial={{ y: -20 }}
           whileInView={{ y: 0 }}
           transition={{ type: "spring", stiffness: 100 }}
-          className="text-2xl font-semibold mb-12 text-center"
+          className="text-2xl font-semibold mb-8 text-center"
         >
           Technologies I Work With
         </motion.h3>
 
-        {/* Multiple rows of moving icons */}
-        <div className="space-y-8">
-          {/* First Row - Left to Right */}
-          <div className="relative h-24 overflow-hidden">
-            <div className="absolute flex gap-8 animate-scroll-left">
-              {Object.entries(techIcons).slice(0, 8).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row1-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {Object.entries(techIcons).slice(0, 8).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row1-dup-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: 5 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Second Row - Right to Left */}
-          <div className="relative h-24 overflow-hidden">
-            <div className="absolute flex gap-8 animate-scroll-right">
-              {Object.entries(techIcons).slice(8).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row2-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: -5 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {Object.entries(techIcons).slice(8).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row2-dup-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: -5 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          {/* Third Row - Left to Right (Faster) */}
-          <div className="relative h-24 overflow-hidden">
-            <div className="absolute flex gap-8 animate-scroll-left-fast">
-              {Object.entries(techIcons).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row3-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-              {/* Duplicate for seamless loop */}
-              {Object.entries(techIcons).map(([name, icon], idx) => (
-                <motion.div
-                  key={`row3-dup-${name}-${idx}`}
-                  whileHover={{ scale: 1.2, rotate: 10 }}
-                  className="flex flex-col items-center justify-center min-w-[120px] p-4 rounded-xl bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-sm border border-white/10"
-                >
-                  <TechIcon name={name} size={48} />
-                  <p className="font-medium mt-2 text-sm">{name}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
+        {/* Horizontal Scrolling Container */}
+        <div className="relative overflow-hidden">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -2000],
+            }}
+            transition={{
+              duration: 30,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+          >
+            {/* First set of icons */}
+            {Object.entries(techIcons).map(([name, icon]) => (
+              <motion.div
+                key={name}
+                whileHover={{ scale: 1.2, y: -10 }}
+                className="flex flex-col items-center justify-center p-6 rounded-xl  min-w-[140px]"
+              >
+                <TechIcon name={name as keyof typeof techIcons} size={48} />
+                <p className="font-medium mt-3 text-sm text-center">{name}</p>
+              </motion.div>
+            ))}
+            {/* Duplicate set for seamless loop */}
+            {Object.entries(techIcons).map(([name, icon]) => (
+              <motion.div
+                key={`${name}-duplicate`}
+                whileHover={{ scale: 1.2, y: -10 }}
+                className="flex flex-col items-center justify-center p-6 rounded-xl "
+              >
+                <TechIcon name={name as keyof typeof techIcons} size={48} />
+                <p className="font-medium mt-3 text-sm text-center">{name}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
 
@@ -915,69 +1079,75 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
 
 </section>
 
-  
-
-
-        {/* Contact Section */}
-        <section id="contact" className="min-h-screen py-20 px-4 relative">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h2 className="text-4xl font-bold mb-12 text-center glow-text">Get in Touch</h2>
-            <div className="glass-card p-8">
-              <div className="grid md:grid-cols-2 gap-8">
-                <div>
-                  <h3 className="text-2xl font-semibold mb-4">Let's Connect</h3>
-                  <p className="text-gray-300 mb-6">
-                    I'm always open to new opportunities and interesting projects.
-                    Feel free to reach out!
-                  </p>
-                  <div className="flex gap-4">
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      href="https://github.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full bg-white/5"
-                    >
-                      <Github className="w-6 h-6" />
-                    </motion.a>
-                    <motion.a
-                      whileHover={{ scale: 1.1 }}
-                      href="https://linkedin.com"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2 rounded-full bg-white/5"
-                    >
-                      <Mail className="w-6 h-6" />
-                    </motion.a>
-                  </div>
-                </div>
-                <form className="space-y-4">
-                  <input
-                    type="text"
-                    placeholder="Your Name"
-                    className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
-                  />
-                  <input
-                    type="email"
-                    placeholder="Your Email"
-                    className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
-                  />
-                  <textarea
-                    placeholder="Your Message"
-                    rows={4}
-                    className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
-                  ></textarea>
-                  <button className="magnetic-button w-full">Send Message</button>
-                </form>
-              </div>
-            </div>
-          </motion.div>
-        </section>
+{/* Contact Section */}
+<section id="contact" className="py-12 px-4 relative">
+  <motion.div
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 0.8 }}
+    className="max-w-4xl mx-auto"
+  >
+    <h2 className="text-4xl font-bold mb-12 text-center glow-text">Get in Touch</h2>
+    <div className="glass-card p-8">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div>
+          <h3 className="text-2xl font-semibold mb-4">Let's Connect</h3>
+          <p className="text-gray-300 mb-6">
+            I'm always open to new opportunities and interesting projects.
+            Feel free to reach out!
+          </p>
+          <div className="flex gap-4">
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              href="https://github.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/5"
+            >
+              <Github className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full bg-white/5" 
+            >
+              <Linkedin className="w-6 h-6" />
+            </motion.a>
+            <motion.a
+              whileHover={{ scale: 1.1 }}
+              href="mailto:your@email.com"
+              className="p-2 rounded-full bg-white/5"
+            >
+              <Mail className="w-6 h-6" />
+            </motion.a>
+          </div>
+        </div>
+        <div>
+          <form className="space-y-4">
+            <input
+              type="text"
+              placeholder="Your Name"
+              className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
+            />
+            <input
+              type="email"
+              placeholder="Your Email"
+              className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
+            />
+            <textarea
+              placeholder="Your Message"
+              rows={4}
+              className="w-full p-3 rounded-lg bg-white/5 border border-white/10 focus:border-[rgb(var(--color-accent))] outline-none"
+            ></textarea>
+            <button className="magnetic-button w-full">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </motion.div>
+</section>
       </div>
 
 {/* Enhanced Floating Navigation Bar */}
