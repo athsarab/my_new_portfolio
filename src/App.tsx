@@ -16,7 +16,7 @@ import { Home, User, Book, Briefcase } from 'lucide-react';
 import SocialCircle from './components/SocialCircle';
 
 
-// Tech icons data (place outside your component)
+// Tech icons data (place outside your component) 
 import ReactIcon from './icons/react.svg';
 import DartIcon from './icons/icons8-dart.svg';
 import JavaScriptIcon from './icons/icons8-javascript.svg';
