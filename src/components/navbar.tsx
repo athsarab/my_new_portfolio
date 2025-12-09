@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,42 +46,65 @@ const Navbar = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-2"
           >
-            <span className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
+            <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500 bg-clip-text text-transparent">
               Athsara Bimalka
-            </span>
+            </Link>
             <span className="hidden md:inline-block h-6 w-6 rounded-full bg-gradient-to-r from-purple-500 to-blue-500 animate-pulse"></span>
           </motion.div>
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            <a 
-              href="#about" 
-              className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+            {isHomePage ? (
+              <>
+                <a 
+                  href="#about" 
+                  className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                >
+                  About
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a 
+                  href="#projects" 
+                  className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                >
+                  Projects
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a 
+                  href="#skills" 
+                  className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                >
+                  Skills
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+                <a 
+                  href="#contact" 
+                  className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+                >
+                  Contact
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+                </a>
+              </>
+            ) : (
+              <Link 
+                to="/" 
+                className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
+              >
+                Home
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+            )}
+            <Link 
+              to="/blog" 
+              className={`transition-colors duration-300 relative group ${
+                location.pathname.includes('/blog') 
+                  ? 'text-blue-400 font-semibold' 
+                  : 'text-gray-300 hover:text-white'
+              }`}
             >
-              About
+              Blog
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#projects" 
-              className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
-            >
-              Projects
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#skills" 
-              className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
-            >
-              Skills
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
-            <a 
-              href="#contact" 
-              className="text-gray-300 hover:text-white transition-colors duration-300 relative group"
-            >
-              Contact
-              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-blue-400 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile menu button */}
