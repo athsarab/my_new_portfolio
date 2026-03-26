@@ -8,6 +8,7 @@ import * as THREE from 'three';
 export type ShowcaseProject = {
   title: string;
   image: string;
+  description?: string;
   github: string;
   demo: string;
 };
@@ -358,6 +359,9 @@ const ProjectShowcase3D: React.FC<ProjectShowcase3DProps> = ({ projects, classNa
                   Close
                 </button>
               </div>
+              {selectedProject.description && (
+                <p className="mb-5 text-sm leading-relaxed text-slate-300">{selectedProject.description}</p>
+              )}
               <div className="flex flex-wrap gap-3">
                 <a
                   href={selectedProject.github}
