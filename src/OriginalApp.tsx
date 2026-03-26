@@ -266,6 +266,114 @@ const projects = [
   },
 ];
 
+const heroWorkflowSteps = ['DISCOVER', 'CREATE', 'OPTIMIZE', 'DEPLOY'];
+
+function HeroWorkflowRail() {
+  const orbitRings = [52, 84, 116];
+  const sideNodes = [
+    { side: 'left', top: '34%', x: -20, color: 'from-fuchsia-400 to-purple-400' },
+    { side: 'left', top: '52%', x: -34, color: 'from-indigo-400 to-fuchsia-400' },
+    { side: 'left', top: '66%', x: -18, color: 'from-blue-400 to-indigo-400' },
+    { side: 'right', top: '36%', x: 18, color: 'from-fuchsia-400 to-pink-400' },
+    { side: 'right', top: '50%', x: 32, color: 'from-blue-400 to-indigo-400' },
+    { side: 'right', top: '63%', x: 16, color: 'from-indigo-300 to-blue-400' },
+  ] as const;
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 18 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, delay: 0.15 }}
+      className="relative z-10 order-2 mx-2 hidden h-[540px] w-[240px] items-center justify-center xl:flex xl:mx-8"
+    >
+      <div className="relative h-full w-full">
+        <div className="absolute left-1/2 top-0 h-28 w-28 -translate-x-1/2 rounded-full bg-fuchsia-500/15 blur-2xl" />
+        <div className="absolute left-1/2 top-[86px] h-[390px] w-24 -translate-x-1/2 bg-gradient-to-b from-fuchsia-500/10 via-indigo-500/10 to-blue-500/10 blur-3xl" />
+
+        <motion.div
+          animate={{ scale: [1, 1.15, 1], opacity: [0.65, 1, 0.65] }}
+          transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute left-1/2 top-[18px] h-5 w-5 -translate-x-1/2 rounded-full bg-fuchsia-400 shadow-[0_0_26px_rgba(217,70,239,0.95)]"
+        />
+
+        {orbitRings.map((size, ringIndex) => (
+          <motion.div
+            key={size}
+            animate={{ opacity: [0.28, 0.62, 0.28], scale: [1, 1.05, 1] }}
+            transition={{ duration: 2.8 + ringIndex * 0.35, repeat: Infinity, ease: 'easeInOut', delay: ringIndex * 0.18 }}
+            className="absolute left-1/2 top-[2px] -translate-x-1/2 rounded-full border border-fuchsia-300/35"
+            style={{ width: size, height: size }}
+          />
+        ))}
+
+        <div className="absolute left-1/2 top-[96px] h-[360px] w-px -translate-x-1/2 bg-gradient-to-b from-fuchsia-300/75 via-indigo-300/60 to-blue-400/75" />
+        <motion.div
+          animate={{ y: [0, 334, 0], opacity: [0.9, 1, 0.9] }}
+          transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute left-1/2 top-[106px] h-4 w-4 -translate-x-1/2 rounded-full bg-cyan-300 shadow-[0_0_20px_rgba(103,232,249,0.95)]"
+        />
+        <div className="absolute left-[42px] top-[110px] h-[326px] w-[2px] rounded-full bg-gradient-to-b from-pink-400/90 via-fuchsia-400/55 to-transparent shadow-[0_0_20px_rgba(236,72,153,0.55)]" />
+        <div className="absolute right-[42px] top-[110px] h-[326px] w-[2px] rounded-full bg-gradient-to-b from-blue-400/90 via-indigo-400/55 to-transparent shadow-[0_0_20px_rgba(59,130,246,0.55)]" />
+
+        {sideNodes.map((node, index) => (
+          <motion.div
+            key={`${node.side}-${node.top}`}
+            animate={{ opacity: [0.45, 1, 0.45], scale: [1, 1.2, 1] }}
+            transition={{ duration: 2.6, repeat: Infinity, delay: index * 0.22, ease: 'easeInOut' }}
+            className={`absolute ${node.side === 'left' ? 'left-1/2' : 'right-1/2'} h-3 w-3 rounded-full bg-gradient-to-br ${node.color} shadow-[0_0_16px_rgba(168,85,247,0.7)]`}
+            style={{ top: node.top, transform: `translateX(${node.x}px)` }}
+          />
+        ))}
+
+        <svg className="pointer-events-none absolute inset-0" viewBox="0 0 240 540" fill="none" aria-hidden="true">
+          <path d="M66 180 L120 230" stroke="url(#railA)" strokeWidth="1.4" strokeOpacity="0.65" />
+          <path d="M170 194 L120 258" stroke="url(#railB)" strokeWidth="1.4" strokeOpacity="0.65" />
+          <path d="M82 314 L120 302" stroke="url(#railA)" strokeWidth="1.2" strokeOpacity="0.65" />
+          <path d="M158 340 L120 338" stroke="url(#railB)" strokeWidth="1.2" strokeOpacity="0.65" />
+          <defs>
+            <linearGradient id="railA" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#ec4899" />
+              <stop offset="100%" stopColor="#a855f7" />
+            </linearGradient>
+            <linearGradient id="railB" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stopColor="#60a5fa" />
+              <stop offset="100%" stopColor="#818cf8" />
+            </linearGradient>
+          </defs>
+        </svg>
+
+        <div className="absolute left-1/2 top-[116px] flex h-[316px] w-[154px] -translate-x-1/2 flex-col items-center justify-between">
+          {heroWorkflowSteps.map((step, index) => (
+            <motion.div
+              key={step}
+              initial={{ opacity: 0, scale: 0.95, y: 8 }}
+              animate={{ opacity: [0.72, 1, 0.72], y: [0, -3, 0] }}
+              transition={{ duration: 2.4, repeat: Infinity, delay: index * 0.23, ease: 'easeInOut' }}
+              className="relative min-w-[132px] rounded-[12px] border border-fuchsia-300/35 bg-slate-900/80 px-4 py-[9px] text-center text-[22px] font-semibold tracking-[0.08em] text-fuchsia-100 shadow-[0_0_28px_rgba(168,85,247,0.22)] backdrop-blur-sm"
+            >
+              <span className="text-[0.9rem]">[{step}]</span>
+              <div className="pointer-events-none absolute inset-0 rounded-[12px] bg-gradient-to-r from-fuchsia-500/10 via-transparent to-blue-500/10" />
+            </motion.div>
+          ))}
+        </div>
+
+        <motion.div
+          animate={{ y: [0, -9, 0], rotate: [0, -5, 5, 0], opacity: [0.8, 1, 0.8] }}
+          transition={{ duration: 2.9, repeat: Infinity, ease: 'easeInOut' }}
+          className="absolute bottom-[12px] left-1/2 -translate-x-1/2"
+        >
+          <svg width="44" height="44" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14.7 4.1c2.8 0 5 2.2 5 5v1.3l-2.2 2.2-3.5-3.5 2.2-2.2V4.1h-1.5z" fill="#f472b6" />
+            <path d="M11.4 7.5l5.1 5.1-5.6 5.6H7.3v-3.6l4.1-4.1-2.1-2.1 2.1-0.9z" fill="#93c5fd" />
+            <path d="M8.2 17.9l-1.8 2.8 2.8-1.8 1.2-1.2-1-1-1.2 1.2z" fill="#fcd34d" />
+            <circle cx="14.6" cy="8.6" r="1.1" fill="#ffffff" />
+          </svg>
+        </motion.div>
+      </div>
+    </motion.div>
+  );
+}
+
 function App() {
   const scrollToSection = (id: string) => {
     const section = document.getElementById(id);
@@ -295,9 +403,9 @@ function App() {
       <CustomCursor />
       <WebBackground />
       <Navbar/>
-      <div className="relative min-h-screen">
+      <div className="relative min-h-screen pb-24 md:pb-0">
         {/* Hero Section */}
-<section id="hero" className="min-h-screen flex flex-col lg:flex-row items-center justify-between relative px-4 md:px-6 lg:px-12 overflow-hidden">
+<section id="hero" className="relative flex min-h-screen flex-col items-center justify-between overflow-hidden px-4 pb-12 pt-4 md:px-6 xl:flex-row xl:px-12">
   {/* Animated background elements - Tailwind only */}
   <div className="absolute inset-0 overflow-hidden z-0">
     <div className="absolute top-20 left-20 w-40 h-40 bg-purple-500 rounded-full blur-3xl opacity-20 animate-bounce"></div>
@@ -310,7 +418,7 @@ function App() {
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.8 }}
-    className="text-left z-10 w-full lg:max-w-2xl mt-20 lg:mt-0 lg:mb-0 order-2 lg:order-1"
+    className="order-1 z-10 mt-20 w-full max-w-2xl text-left xl:mt-0 xl:max-w-2xl"
   >
     <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-gray-100">
       <TypeAnimation
@@ -334,11 +442,17 @@ function App() {
       Full Stack Developer | Android Enthusiast | UI Magician
     </p>
 
-    <div className="flex flex-wrap gap-3 md:gap-4">
-      <button className="magnetic-button bg-gradient-to-r from-purple-500 to-blue-600 hover:from-purple-600 hover:to-blue-700 transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-purple-500/30 px-6 py-3 rounded-full font-medium">
+    <div className="flex flex-col gap-3 sm:flex-row md:gap-4">
+      <button
+        onClick={() => scrollToSection('projects')}
+        className="magnetic-button w-full rounded-full bg-gradient-to-r from-purple-500 to-blue-600 px-6 py-3 font-medium transition-all duration-300 hover:scale-105 hover:from-purple-600 hover:to-blue-700 hover:shadow-lg hover:shadow-purple-500/30 sm:w-auto"
+      >
         View Projects
       </button>
-      <button className="magnetic-button bg-transparent border-2 border-purple-400 text-purple-400 hover:bg-purple-400 hover:text-white transition-all duration-300 hover:scale-105 px-6 py-3 rounded-full font-medium">
+      <button
+        onClick={() => scrollToSection('contact')}
+        className="magnetic-button w-full rounded-full border-2 border-purple-400 bg-transparent px-6 py-3 font-medium text-purple-400 transition-all duration-300 hover:scale-105 hover:bg-purple-400 hover:text-white sm:w-auto"
+      >
         Get in Touch
       </button>
     </div>
@@ -353,6 +467,8 @@ function App() {
     </div>
   </motion.div>
 
+  <HeroWorkflowRail />
+
   <SocialCircle />
 
   {/* Image with floating animation - adjusted for mobile */}
@@ -360,13 +476,13 @@ function App() {
     initial={{ opacity: 0, x: 50 }}
     animate={{ opacity: 1, x: 0 }}
     transition={{ duration: 0.8 }}
-    className="z-10 relative w-full lg:w-auto mt-8 md:mt-12 lg:mt-0 order-3"
+    className="relative order-2 z-10 mt-10 w-full max-w-[340px] sm:mt-12 sm:max-w-[420px] xl:order-3 xl:mt-0 xl:max-w-[520px]"
   >
-    <div className="relative mx-auto w-64 sm:w-80 md:w-96 lg:w-full">
+    <div className="relative mx-auto w-full">
       <img
         src={pic1}
         alt="Athsara"
-        className="w-full h-auto max-w-md object-contain rounded-tl-3xl rounded-br-3xl border-4 border-purple-400 border-opacity-30 shadow-2xl hover:shadow-purple-500/50 transition-all duration-500"
+        className="h-auto w-full object-contain rounded-tl-3xl rounded-br-3xl border-4 border-purple-400 border-opacity-30 shadow-2xl transition-all duration-500 hover:shadow-purple-500/50"
       />
       {/* Glow effect */}
       <div className="absolute inset-0 bg-purple-500 rounded-tl-3xl rounded-br-3xl opacity-0 hover:opacity-10 transition-opacity duration-300 -z-10"></div>
@@ -1228,3 +1344,5 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
 }
 
 export default App;
+
+

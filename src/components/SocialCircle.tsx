@@ -53,7 +53,7 @@ const socials = [
 
 export default function VerticalSocialLinks() {
   return (
-    <div className="pointer-events-none absolute right-3 top-1/2 z-30 hidden -translate-y-1/2 lg:block xl:right-6">
+    <div className="pointer-events-none absolute right-3 top-1/2 z-30 hidden -translate-y-1/2 xl:block xl:right-6">
       <motion.div 
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
