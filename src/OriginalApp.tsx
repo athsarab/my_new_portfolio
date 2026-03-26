@@ -1,19 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 import { TypeAnimation } from 'react-type-animation';
-import { Github, Linkedin, Mail, ExternalLink, GraduationCap } from 'lucide-react';
+import { Github, Linkedin, Mail, GraduationCap } from 'lucide-react';
 import CustomCursor from './components/CustomCursor';
 import WebBackground from './components/WebBackground';
 import Navbar from './components/navbar';
 import pic1 from './assets/my7.png';
 import pic2 from './assets/my2.png';
-import dream from './assets/dreem.png';
 import shopping from './assets/eStore.jpg';
-import bus from './assets/busi.jpeg';
-import skillhive from './assets/skillhive.png';
+import busManagementSystem from './assets/bus managemnt system.png';
+import cartEat from './assets/cart eat.png';
+import dailyExpencesTrackingApp from './assets/daily expences tracking app.png';
+import foodCatcherMobileGame from './assets/food catcher mobile game.png';
+import hangManGame from './assets/hang man game.png';
+import landBidAndSelling from './assets/land bid and selling.png';
+import numberBook from './assets/number book.png';
+import papayaPulze from './assets/papayapulze.png';
+import preshadiDancingClass from './assets/preshadi dancing class.png';
+import resipesManagementSystem from './assets/Resipes management system.png';
+import selaniumTestCases from './assets/selanium test cases.png';
+import skillShareingSystem from './assets/skill shareing system.png';
+import travelManagementSystem from './assets/travel management system.png';
+import trustWorkers from './assets/Trust workers.png';
+import vehicleRentalSystem from './assets/vehicle rental system.png';
+import vidunaClass from './assets/viduna class.png';
 
 import { Home, User, Book, Briefcase } from 'lucide-react';
 import SocialCircle from './components/SocialCircle';
+import ProjectShowcase3D from './components/ProjectShowcase3D';
 
 
 // Tech icons data (place outside your component) 
@@ -98,25 +112,151 @@ function TechIcon({ name, size = 32 }: { name: keyof typeof techIcons; size?: nu
 // Project data array
 const projects = [
   {
-    img: dream,
-    title: 'Dream Destiny',
-    tags: ['React', 'Node.js'],
-    desc: 'A full-featured Travel management platform with Wether API, Simple chat bot, and user authentication.',
-    date: 'April 2025',
+    img: busManagementSystem,
+    title: 'Bus Managemnt System',
+    tags: ['Web App', 'Management'],
+    desc: 'Bus operations system for routes, schedules, and passenger workflow management.',
+    date: '2025',
     code: '#',
     demo: '#',
   },
   {
-    img: skillhive,
-    title: 'Skill Hive',
-    tags: ['Springboot', 'React'],
-    desc: 'A collaborative Post management application with real-time updates, Social media aplication, and team features.',
-    date: 'Mar 2025',
+    img: cartEat,
+    title: 'Cart Eat',
+    tags: ['Web App', 'Food'],
+    desc: 'Food ordering and cart based experience with a clean customer checkout flow.',
+    date: '2025',
     code: '#',
     demo: '#',
   },
   {
-    img:shopping,
+    img: dailyExpencesTrackingApp,
+    title: 'Daily Expences Tracking App',
+    tags: ['Productivity', 'Finance'],
+    desc: 'Expense tracking application for recording daily spending and visualizing habits.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: foodCatcherMobileGame,
+    title: 'Food Catcher Mobile Game',
+    tags: ['Game', 'Mobile'],
+    desc: 'Arcade style mobile game focused on catching items and score progression.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: hangManGame,
+    title: 'Hang Man Game',
+    tags: ['Game', 'Web'],
+    desc: 'Classic hangman game with interactive UI and word guessing logic.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: landBidAndSelling,
+    title: 'Land Bid And Selling',
+    tags: ['Marketplace', 'Web'],
+    desc: 'Land listing and bidding platform for showcasing and trading property assets.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: numberBook,
+    title: 'Number Book',
+    tags: ['Mobile', 'Utility'],
+    desc: 'Contact management app for storing and managing phone records.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: papayaPulze,
+    title: 'Papayapulze',
+    tags: ['Brand', 'Web'],
+    desc: 'Custom brand focused web experience with rich visual presentation.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: preshadiDancingClass,
+    title: 'Preshadi Dancing Class',
+    tags: ['Education', 'Web'],
+    desc: 'Class management and profile website for a dance academy.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: resipesManagementSystem,
+    title: 'Resipes Management System',
+    tags: ['Management', 'Web'],
+    desc: 'Recipe management platform for organizing, browsing, and maintaining food data.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: selaniumTestCases,
+    title: 'Selanium Test Cases',
+    tags: ['QA', 'Automation'],
+    desc: 'Automation testing project containing structured Selenium based test scenarios.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: skillShareingSystem,
+    title: 'Skill Shareing System',
+    tags: ['Learning', 'Platform'],
+    desc: 'Skill sharing platform for learning collaboration and content exchange.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: travelManagementSystem,
+    title: 'Travel Management System',
+    tags: ['Travel', 'Management'],
+    desc: 'Travel workflow platform for planning, booking, and trip coordination.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: trustWorkers,
+    title: 'Trust Workers',
+    tags: ['Services', 'Web'],
+    desc: 'Service matching concept focused on trusted worker discovery and hiring.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: vehicleRentalSystem,
+    title: 'Vehicle Rental System',
+    tags: ['Rental', 'Management'],
+    desc: 'Vehicle booking and fleet management system with rental workflows.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: vidunaClass,
+    title: 'Viduna Class',
+    tags: ['Education', 'Web'],
+    desc: 'Class website and student interaction portal for learning activities.',
+    date: '2025',
+    code: '#',
+    demo: '#',
+  },
+  {
+    img: shopping,
     title: 'KIYARAA store',
     tags: ['PHP', 'Javascript'],
     desc: 'A responsive online shopping store website with project showcase sections , buy items , add cart options and admin dashboard.',
@@ -124,79 +264,6 @@ const projects = [
     code: '#',
     demo: '#',
   },
-  {
-    img: bus,
-    title: 'Bus management system',
-    tags: ['MERN', 'API'],
-    desc: 'A web application that manage bus time table , sheet bookings , packages and drivers it helps to pasengers and drivers .',
-    date: 'Nov 2024',
-    code: '#',
-    demo: '#',
-  },
-  {
-    img: '/path-to-project5-image.jpg',
-    title: 'Recipe Finder',
-    tags: ['PHP', 'Javascript'],
-    desc: 'An application that helps users find recipes based on ingredients they have, with nutritional information.',
-    date: 'Aug 2023',
-    code: '#',
-    demo: '#',
-  },
-  {
-    img: '/path-to-project6-image.jpg',
-    title: 'SARAA Renters',
-    tags: ['Java', 'MySql'],
-    desc: 'A comprehensive Wehicle rent web application with tracking vehicles, progress visualization, and goal setting.',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-  {
-    img: '/path-to-project6-image.jpg',
-    title: 'Fruit catch game',
-    tags: ['Kotlin', 'XML'],
-    desc: 'That game developed using kotlin it easy to catch fruits and get scores.',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-    {
-    img: '/path-to-project6-image.jpg',
-    title: 'Phone Book',
-    tags: ['Kotline', 'MySqlite'],
-    desc: 'User can save their mobile numbers .',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-    {
-    img: '/path-to-project6-image.jpg',
-    title: 'Space Invaders',
-    tags: ['Flutter', 'Dart'],
-    desc: 'only mobile interface developed using flutter.',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-      {
-    img: '/path-to-project6-image.jpg',
-    title: 'Number Book',
-    tags: ['Flutter', 'Dart'],
-    desc: 'only mobile app with backend developed using flutter.',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-    {
-    img: '/path-to-project6-image.jpg',
-    title: 'Selenium test cases',
-    tags: ['API', 'Python'],
-    desc: 'Manually written test cases using python.',
-    date: 'May 2024',
-    code: '#',
-    demo: '#',
-  },
-  
 ];
 
 function App() {
@@ -214,8 +281,13 @@ function App() {
     }
   };
 
-  const [showAllProjects, setShowAllProjects] = useState(false);
-  const visibleProjects = showAllProjects ? projects : projects.slice(0, 6);
+  const featured3DProjects = projects
+    .map((project) => ({
+      title: project.title,
+      image: project.img,
+      github: project.code,
+      demo: project.demo,
+    }));
 
   return (
     <>   
@@ -916,79 +988,7 @@ Currently, I'm actively seeking anouther internship opportunities where I can ap
       </p>
     </motion.div>
 
-    {/* Projects Grid */}
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {visibleProjects.map((project, idx) => (
-        <motion.div
-          key={project.title + idx}
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 * idx }}
-          whileHover={{ y: -10 }}
-          className="bg-gray-800/50 rounded-xl overflow-hidden shadow-lg border border-gray-700/50 backdrop-blur-sm"
-        >
-          <div className="relative h-48 overflow-hidden">
-            <img 
-              src={project.img} 
-              alt={project.title} 
-              className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-            />
-            <div className="absolute inset-0 bg-indigo-600/20 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity">
-              <a 
-                href={project.code}
-                className="bg-white text-indigo-600 px-4 py-2 rounded-full font-medium flex items-center"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" viewBox="0 0 24 24" fill="currentColor">
-                  <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.167 6.839 9.49.5.09.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.202 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.163 22 16.418 22 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-                </svg>
-                View Code
-              </a>
-            </div>
-          </div>
-          <div className="p-6">
-            <div className="flex justify-between items-start mb-3">
-              <h3 className="text-xl font-bold text-white">{project.title}</h3>
-              <div className="flex space-x-2">
-                {project.tags.map((tag) => (
-                  <span key={tag} className="bg-indigo-600/20 text-indigo-400 text-xs px-2 py-1 rounded-full">{tag}</span>
-                ))}
-              </div>
-            </div>
-            <p className="text-gray-400 mb-4">{project.desc}</p>
-            <div className="flex items-center justify-between">
-              <div className="flex items-center space-x-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                </svg>
-                <a href={project.demo} className="text-indigo-400 hover:text-indigo-300 text-sm">Live Demo</a>
-              </div>
-              <span className="text-xs text-gray-500">{project.date}</span>
-            </div>
-          </div>
-        </motion.div>
-      ))}
-    </div>
-    {/* View More Button */}
-    {projects.length > 6 && (
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.6 }}
-        className="text-center mt-16"
-      >
-        <motion.button
-          onClick={() => setShowAllProjects((v) => !v)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center px-6 py-3 border border-indigo-600 text-indigo-400 rounded-full hover:bg-indigo-600/20 transition-colors"
-        >
-          {showAllProjects ? 'Show Less' : 'View All Projects'}
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-          </svg>
-        </motion.button>
-      </motion.div>
-    )}
+    <ProjectShowcase3D projects={featured3DProjects} />
   </div>
     {/* skill section */}
 </section>

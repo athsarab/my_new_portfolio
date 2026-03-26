@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.0",
+    "@react-three/drei": "^9.122.0",
+    "@react-three/fiber": "^8.17.14",
     "framer-motion": "^11.0.8",
     "gsap": "^3.12.5",
     "lucide-react": "^0.344.0",
@@ -19,7 +21,8 @@
     "react-helmet-async": "^2.0.5",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.10.1",
-    "react-type-animation": "^3.2.0"
+    "react-type-animation": "^3.2.0",
+    "three": "^0.183.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
