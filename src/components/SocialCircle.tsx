@@ -19,7 +19,7 @@ const socials = [
   },
   {
     name: "Instagram",
-    url: "hhttps://www.instagram.com/aw_beem",
+    url: "https://www.instagram.com/aw_beem",
     color: "bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600",
     icon: (
       <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.334 3.608 1.308.974.974 1.246 2.241 1.308 3.608.058 1.266.069 1.646.069 4.85s-.012 3.584-.07 4.85c-.062 1.366-.334 2.633-1.308 3.608-.974.974-2.241 1.246-3.608 1.308-1.266.058-1.646.069-4.85.069s-3.584-.012-4.85-.07c-1.366-.062-2.633-.334-3.608-1.308-.974-.974-1.246-2.241-1.308-3.608C2.175 15.647 2.163 15.267 2.163 12s.012-3.584.07-4.85c.062-1.366.334-2.633 1.308-3.608.974-.974 2.241-1.246 3.608-1.308C8.416 2.175 8.796 2.163 12 2.163zm0-2.163C8.741 0 8.332.013 7.052.072 5.771.131 4.659.425 3.678 1.406c-.981.981-1.275 2.093-1.334 3.374C2.013 5.668 2 6.077 2 9.333v5.334c0 3.256.013 3.665.072 4.946.059 1.281.353 2.393 1.334 3.374.981.981 2.093 1.275 3.374 1.334C8.332 23.987 8.741 24 12 24s3.668-.013 4.948-.072c1.281-.059 2.393-.353 3.374-1.334.981-.981 1.275-2.093 1.334-3.374.059-1.281.072-1.69.072-4.946V9.333c0-3.256-.013-3.665-.072-4.946-.059-1.281-.353-2.393-1.334-3.374-.981-.981-2.093-1.275-3.374-1.334C15.668.013 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a3.999 3.999 0 110-7.998 3.999 3.999 0 010 7.998zm6.406-11.845a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
@@ -53,12 +53,12 @@ const socials = [
 
 export default function VerticalSocialLinks() {
   return (
-    <div className="fixed right-4 top-1/2 transform -translate-y-1/2 z-50">
+    <div className="pointer-events-none absolute right-3 top-1/2 z-30 hidden -translate-y-1/2 lg:block xl:right-6">
       <motion.div 
         initial={{ opacity: 0, x: 50 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.5 }}
-        className="flex flex-col space-y-3 p-2 bg-white/10 backdrop-blur-md rounded-lg shadow-lg border border-white/20"
+        className="pointer-events-auto flex flex-col space-y-3 rounded-lg border border-white/20 bg-white/10 p-2 shadow-lg backdrop-blur-md"
       >
         {socials.map((social, i) => (
           <motion.a
@@ -71,7 +71,7 @@ export default function VerticalSocialLinks() {
             transition={{ delay: i * 0.1, duration: 0.3 }}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
-            className={`${social.color} w-12 h-12 rounded-full flex items-center justify-center text-white transition-all duration-200 shadow-md hover:shadow-lg`}
+            className={`${social.color} flex h-12 w-12 items-center justify-center rounded-full text-white shadow-md transition-all duration-200 hover:shadow-lg`}
             aria-label={social.name}
             title={social.name}
           >
